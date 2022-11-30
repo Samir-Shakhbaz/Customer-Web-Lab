@@ -14,8 +14,47 @@ import javax.persistence.*;
 
 public class Customer {
 
+    public Customer(String fullName, String emailAddress, Integer age, String address) {
+        this.fullName = fullName;
+        this.emailAddress = emailAddress;
+        this.age = age;
+        this.address = address;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
     private String fullName;
@@ -29,5 +68,16 @@ public class Customer {
     @OneToOne(mappedBy = "customer")
     private Insurance insurance;
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", car=" + car +
+                ", insurance=" + insurance +
+                '}';
+    }
 }
